@@ -5,6 +5,7 @@
 
 @theme {
   --color-header-dark: #2b3844;
+  --color-open: #fff;
 
   --shadow-header: 0px 2px 4px 0px rgba(0, 0, 0, 0.06);
   --shadow-input: 0px 2px 9px 0px rgba(0, 0, 0, 0.05);

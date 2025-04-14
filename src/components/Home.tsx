@@ -5,7 +5,25 @@ import data from "../data.json";
 
 const Home = () => {
   const [open, setOpen] = useState<boolean>(false);
+  const [search, setSearch] = useState<string>("");
+  const [filteredCountries, setFilteredCountries] = useState(data);
   const regions: string[] = ["Africa", "America", "Asia", "Europe", "Oceania"];
+
+  const handleSearch = () => {
+    const searchTerm = search.trim().toLocaleLowerCase();
+    const filtered = data.filter((country) =>
+      country.name.toLocaleLowerCase().includes(searchTerm)
+    );
+    setFilteredCountries(filtered ? filtered : data);
+  };
+
+  const handleFilter = (region: string) => {
+    const filtered = data.filter(
+      (country) => country.region.toLowerCase() === region.toLowerCase()
+    );
+    setFilteredCountries(filtered);
+    setOpen(false);
+  };
 
   return (
     <div className="px-[16px] ">
@@ -15,11 +33,13 @@ const Home = () => {
             type="text"
             className="w-[343px] pl-[74px] py-[14px] shadow-input rounded-[5px] relative dark:bg-header-dark dark:text-[#fff] dk:w-[480px]"
             placeholder="Search for a country… "
+            onChange={(e) => setSearch(e.target.value)}
           />
           <img
             src={searchIcon}
             alt="search icon"
             className="relative top-[-34px] right-[130px] dk:right-[200px]"
+            onClick={handleSearch}
           />
         </div>
 
@@ -33,9 +53,24 @@ const Home = () => {
           <img src={arrowIcon} alt="arrow down icon" />
         </div>
       </div>
+      {open && (
+        <div className="w-[200px] py-[16px] pl-[24px] bg-open rounded-[5px] shadow-filter dark:bg-header-dark mt-[4px] absolute ">
+          {regions.map((region) => {
+            return (
+              <p
+                className="text-[#111517] text-[12px] font-normal dark:text-[#fff]"
+                onClick={() => handleFilter(region)}
+                key={region}
+              >
+                {region}
+              </p>
+            );
+          })}
+        </div>
+      )}
 
       <div className="countries mt-[32px] px-[55px] flex flex-col items-center gap-[40px] dk:flex-row dk:flex-wrap dk:justify-center dk:gap-[61px] dk:px-0">
-        {data.map((country) => {
+        {filteredCountries.map((country) => {
           return (
             <div
               key={country.name}

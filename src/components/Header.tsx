@@ -28,7 +28,7 @@ const Header = () => {
         <img src={moonIcon} alt="moon icon" className="w-[16px] h-[16px]" />
 
         <p
-          className={`darkmode  text-[12px] font-semibold ${
+          className={`  text-[12px] font-semibold ${
             darkMode ? "text-[#111517]" : "text-[#fff]"
           } dk:text-[16px]`}
         >

@@ -11,6 +11,8 @@
   --shadow-input: 0px 2px 9px 0px rgba(0, 0, 0, 0.05);
   --shadow-filter: 0px 2px 9px 0px rgba(0, 0, 0, 0.05);
   --shadow-country: 0px 0px 7px 2px rgba(0, 0, 0, 0.03);
+  --shadow-back: 0px 0px 7px 0px rgba(0, 0, 0, 0.29);
+  --shadow-borders: 0px 0px 4px 1px rgba(0, 0, 0, 0.1);
 
   --breakpoint-mb: 375px;
   --breakpoint-dk: 1440px;

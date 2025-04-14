@@ -15,9 +15,9 @@ const Header = () => {
   };
 
   return (
-    <div className="px-[16px] py-[30px] flex justify-between items-center shadow-header">
+    <div className="px-[16px] py-[30px] flex justify-between items-center shadow-header dark:bg-header-dark dk:py-[24px] dk:px-[80px]">
       <div className="word">
-        <p className="text-[#111517] text-[14px] font-extrabold">
+        <p className="text-[#111517] text-[14px] font-extrabold dark:text-[#Fff] dk:text-[24px]">
           Where in the world?
         </p>
       </div>
@@ -26,7 +26,14 @@ const Header = () => {
         onClick={handleDarkMode}
       >
         <img src={moonIcon} alt="moon icon" className="w-[16px] h-[16px]" />
-        <p className="text-[#111517] text-[12px] font-semibold">Dark Mode</p>
+
+        <p
+          className={`darkmode  text-[12px] font-semibold ${
+            darkMode ? "text-[#111517]" : "text-[#fff]"
+          } dk:text-[16px]`}
+        >
+          Dark Mode
+        </p>
       </div>
     </div>
   );

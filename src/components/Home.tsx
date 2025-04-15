@@ -56,7 +56,7 @@ const Home = () => {
         </div>
       </div>
       {open && (
-        <div className="w-[200px] py-[16px] pl-[24px] bg-open rounded-[5px] shadow-filter dark:bg-header-dark mt-[4px] absolute ">
+        <div className="w-[200px] py-[16px] pl-[24px] bg-open rounded-[5px] shadow-filter dark:bg-header-dark mt-[4px] absolute right-30">
           {regions.map((region) => {
             return (
               <p
@@ -77,31 +77,35 @@ const Home = () => {
             <Link key={country.name} to={`/home/${country.name}`}>
               <div
                 key={country.name}
-                className="shadow-country dark:bg-header-dark pb-[46px] rounded-[5px] w-[264px] "
+                className="shadow-country dark:bg-header-dark pb-[46px] rounded-[5px] w-[264px]"
               >
-                <img src={country.flags.svg} alt="country image " />
-                <div className="basic-info pl-[24px]">
-                  <p className="mt-[24px] text-[#111517] text-[18px] font-extrabold dark:text-[#fff]">
-                    {country.name}
-                  </p>
-                  <p className="text-[#111517] font-semibold text-[14px] mt-[16px] dark:text-[#fff]">
-                    Population:
-                    <span className="text-[#111517] font-light text-[14px] dark:text-[#fff]">{` ${new Intl.NumberFormat(
-                      "en-US"
-                    ).format(country.population)}`}</span>
-                  </p>
-                  <p className="text-[#111517] font-semibold text-[14px] dark:text-[#fff]">
-                    Region:{" "}
-                    <span className="text-[#111517] font-light text-[14px]  dark:text-[#fff]">
-                      {country.region}
-                    </span>
-                  </p>
-                  <p className="text-[#111517] font-semibold text-[14px] dark:text-[#fff]">
-                    Capital:{" "}
-                    <span className="text-[#111517] font-light text-[14px] dark:text-[#fff]">
-                      {country.capital}
-                    </span>
-                  </p>
+                <div className="flag">
+                  <img src={country.flags.svg} alt="country image " />
+                </div>
+                <div className="all-other-info">
+                  <div className="basic-info pl-[24px]">
+                    <p className="mt-[24px] text-[#111517] text-[18px] font-extrabold dark:text-[#fff]">
+                      {country.name}
+                    </p>
+                    <p className="text-[#111517] font-semibold text-[14px] mt-[16px] dark:text-[#fff]">
+                      Population:
+                      <span className="text-[#111517] font-light text-[14px] dark:text-[#fff]">{` ${new Intl.NumberFormat(
+                        "en-US"
+                      ).format(country.population)}`}</span>
+                    </p>
+                    <p className="text-[#111517] font-semibold text-[14px] dark:text-[#fff]">
+                      Region:{" "}
+                      <span className="text-[#111517] font-light text-[14px]  dark:text-[#fff]">
+                        {country.region}
+                      </span>
+                    </p>
+                    <p className="text-[#111517] font-semibold text-[14px] dark:text-[#fff]">
+                      Capital:{" "}
+                      <span className="text-[#111517] font-light text-[14px] dark:text-[#fff]">
+                        {country.capital}
+                      </span>
+                    </p>
+                  </div>
                 </div>
               </div>
             </Link>
